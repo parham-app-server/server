@@ -14,10 +14,10 @@ def send_message():
     if user:
         # اگر این کاربر قبلاً نبود، اضافه کن
         if user not in messages:
-            messages[user] = []
+            messages[user] = ""
 
         # پیام جدید را به لیست پیام‌های آن کاربر اضافه کن
-        messages[user].append(content)
+        messages[user] = content
 
         return jsonify({"status": "received", "user": user})
     else:
@@ -30,4 +30,5 @@ def get_messages():
 
 
 if __name__ == '__main__':
+
     app.run(host='0.0.0.0', port=5000)
